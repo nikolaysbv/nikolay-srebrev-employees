@@ -79,7 +79,12 @@ function App() {
   return (
     <main>
       <section className="upload-section">
-        <input type="file" id="sheet" onChange={handleChange} />
+        <div className="upload-container">
+          <label for="sheet" class="label-file-upload">
+            Upload Excel sheet
+          </label>
+          <input type="file" id="sheet" onChange={handleChange} />
+        </div>
       </section>
       <section className="table-section">
         <table>
@@ -89,7 +94,7 @@ function App() {
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr className="colnames">
               <td>Employee ID #1</td>
               <td>Employee ID #2</td>
               <td>Project ID</td>
