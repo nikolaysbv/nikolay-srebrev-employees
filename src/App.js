@@ -8,6 +8,10 @@ function App() {
   function dateToUnixTimestamp(date) {
     if (date === "NULL")
       return Math.floor(new Date(Date.now()).getTime() / (1000 * 60 * 60 * 24));
+
+    // support for YYYY/MM/DD format
+    date = date.replaceAll("/", "-");
+
     return Math.floor(new Date(date).getTime() / (1000 * 60 * 60 * 24));
   }
 
@@ -80,7 +84,7 @@ function App() {
     <main>
       <section className="upload-section">
         <div className="upload-container">
-          <label for="sheet" class="label-file-upload">
+          <label htmlFor="sheet" className="label-file-upload">
             Upload Excel sheet
           </label>
           <input type="file" id="sheet" onChange={handleChange} />
